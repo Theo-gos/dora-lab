@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     steps:
-      - use: actions/checkout@v4
+      - uses: actions/checkout@v4
       - run: test -s VERSION && echo "unit tests passed for  ${cat VERSION}"
     deploy-prod:
       if: github.event_name == 'push'
