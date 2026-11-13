@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: test -s VERSION && echo "unit tests passed for  ${cat VERSION}"
+      - run: test -s VERSION && echo "unit tests passed for $(cat VERSION)"
   deploy-prod:
     if: github.event_name == 'push'
     needs: test
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: echo "deploying booking-api ${cat VERSION}"
+      - run: echo "deploying booking-api $(cat VERSION)"
       - run: bash smoke.sh
