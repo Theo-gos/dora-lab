@@ -12,6 +12,7 @@ jobs:
     if: github.event_name == 'push'
     needs: test
     runs-on: ubuntu-24.04
+    environment: prod 
     steps:
       - uses: actions/checkout@v4
       - run: echo "deploying booking-api $(cat VERSION)"
